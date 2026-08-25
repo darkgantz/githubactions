@@ -1,0 +1,14 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [],
+  "dictionaries": ["custom"],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom",
+      "path": "./.cspell-dict.txt",
+      "addWords": true
+    }
+  ],
+  "ignorePaths": ["node_modules", ".git", "package-lock.json"]
+}
