@@ -1,0 +1,24 @@
+name: Best Practices Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  best-practices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Run best practices checks
+        env:
+          GITHUB_PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
+        run: bash scripts/check-best-practices.sh
